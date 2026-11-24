@@ -1,0 +1,116 @@
+\documentclass[12pt]{article}
+
+% Encoding and fonts (prevents unicode errors with — “ ” etc.)
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% URLs, colors, layout, code
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage[most]{tcolorbox}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{cite} % IEEE-style grouped numeric citations
+\usepackage{booktabs} % For \toprule, \midrule, \bottomrule
+\usepackage{caption}
+\geometry{margin=0.85in}
+\linespread{1.06}
+
+% Math (for \oplus, etc.)
+\usepackage{amsmath,amssymb}
+
+% ---------- UoG Colours ----------
+\definecolor{UoGMaroon}{HTML}{7A003C}
+\definecolor{UoGLight}{HTML}{F7EEF2}
+\definecolor{UoGDark}{HTML}{4A0023}
+
+% ---------- Syntax Highlighting Colors ----------
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{codeblue}{rgb}{0.13,0.29,0.53}
+\definecolor{codebg}{rgb}{0.97,0.97,0.97}
+
+\lstset{
+  basicstyle=\color{blue}\ttfamily\small,
+  keywordstyle=\color{blue}\ttfamily\small,
+  commentstyle=\color{gray}\ttfamily\small,
+  stringstyle=\color{red}\ttfamily\small,
+  breaklines=true
+}
+
+% ---------- Listings Configuration for C ----------
+\lstdefinestyle{cstyle}{
+    language=C,
+    backgroundcolor=\color{codebg},
+    commentstyle=\color{codegreen}\itshape,
+    keywordstyle=\color{codeblue}\bfseries,
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=6pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    frame=single,
+    rulecolor=\color{UoGMaroon},
+    xleftmargin=12pt,
+    xrightmargin=12pt,
+    framexleftmargin=8pt
+}
+\lstset{style=cstyle}
+
+\newcommand{\cmd}[1]{\textcolor{blue}{\texttt{#1}}}
+
+\title{\Large\textbf{Digital Logic with Logisim-evolution \& Logicraft AI Studio}\\[0.5ex]
+\large Sequential Circuits, Synchronous Counters \& Software Modeling}
+\author{School of Computer Science – Computing Systems, University of Galway}
+\date{October 2026}
+
+\begin{document}
+
+\begin{center}
+\includegraphics[width=0.32\textwidth]{UOG_LOGO.png}\\[1.5ex]
+{\Large \textbf{University of Galway}}\\[0.8ex]
+{\normalsize School of Computer Science – Computing Systems}
+\end{center}
+\vspace{0.8em}
+
+\maketitle
+
+% =========================================================
+\section*{Learning Objectives}
+By the end of this lab, you should be able to:
+\begin{itemize}
+
+\end{itemize}
+
+% =========================================================
+\section*{Deliverables}
+\begin{tcolorbox}[colback=UoGMaroon!8!white,colframe=UoGMaroon,title=Important Deliverables Notice: Reflections Only]
+For this lab, you \textbf{only} need to submit your written answers to the \textbf{Reflection Questions} from:
+\begin{itemize}
+
+\end{itemize}
+\textbf{Note:} You do \textbf{not} need to submit circuit files, code files, or screenshots. Only your answers to the reflection questions are required!
+\end{tcolorbox}
+
+
+% =========================================================
+\section*{Software Setup \& Tools}
+You may construct and verify your circuits using either of the following two approved tools:
+
+
+
+
+
+\end{document}

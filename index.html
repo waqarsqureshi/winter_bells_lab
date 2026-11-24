@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A two-hour University of Galway Raspberry Pi Sense HAT lab: explore LEDs, pixel art and sound, then bring them together.">
+  <meta name="theme-color" content="#14243a">
+  <title>Winter Bells Lab | University of Galway</title>
+  <link rel="icon" href="UOG_LOGO.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Winter Bells Lab home">
+        <img src="UOG_LOGO.png" alt="" width="42" height="42">
+        <span><strong>University of Galway</strong><small>Computing Systems Lab</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">Toggle navigation</span><span aria-hidden="true">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="#about">The Sense HAT</a>
+        <a href="#activities">Activities</a>
+        <a href="#pixel-studio">Pixel Studio</a>
+        <a href="#prepare">Get ready</a>
+        <a href="#downloads">Lab pack</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">A two-hour Raspberry Pi practical</p>
+        <h1>Winter Bells <span>Lab</span></h1>
+        <p class="hero-lede">Meet the Sense HAT through light, colour and sound. Start with one LED, make a tiny winter scene, compose a chime, then bring the pieces together.</p>
+        <p class="hero-note">No Python theory lecture today: explore what the hardware can do, and take an idea with you for Semester 2 or the hackathon.</p>
+        <div class="hero-actions">
+          <a class="button button-gold" href="#activities">Start the lab <span aria-hidden="true">↓</span></a>
+          <a class="button button-outline" href="Winter_Bells_Lab_Instructions.pdf" download>Download printable handout</a>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <img src="sense_hat_on_pi.png" alt="A Raspberry Pi Sense HAT board mounted on top of a Raspberry Pi computer">
+        <figcaption>Sense HAT mounted on a Raspberry Pi. Photo: Raspberry Pi Foundation. <a href="https://www.raspberrypi.org/blog/the-sense-hat-headgear-for-the-terminally-curious/">Image source</a>.</figcaption>
+      </figure>
+    </section>
+
+    <section class="quick-facts" aria-label="Lab at a glance">
+      <div><span class="fact-number">02</span><span>hours of making</span></div>
+      <div><span class="fact-number">04</span><span>activities, in order</span></div>
+      <div><span class="fact-number">08×08</span><span>pixels to play with</span></div>
+      <div><span class="fact-number">1</span><span>final light-and-sound show</span></div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="section-heading">
+        <p class="eyebrow">First, meet the board</p>
+        <h2>A small board with lots of ways in</h2>
+      </div>
+      <div class="about-grid">
+        <div class="prose">
+          <p>The Sense HAT sits on the Raspberry Pi's 40-pin GPIO header. Its centre is an 8×8 matrix of 64 RGB LEDs: each square mixes red, green and blue light, so it can show colours, scrolling messages and simple animations.</p>
+          <p>There is a five-way joystick for simple input, too. Temperature, humidity and pressure sensors can help a project respond to its surroundings; the accelerometer, gyroscope and magnetometer can make it respond to movement and orientation. We will focus on the display in this lab, and leave the other sensors as ideas for later.</p>
+          <p class="source-note">For hardware details, see the <a href="https://www.raspberrypi.com/documentation/accessories/sense-hat.html">Raspberry Pi Sense HAT documentation</a>.</p>
+        </div>
+        <aside class="callout space-callout">
+          <p class="eyebrow">A project with a space story</p>
+          <h3>From classroom experiments to orbit</h3>
+          <p>Astro Pi is an education programme that gives students opportunities to design and run experiments connected with the International Space Station. Raspberry Pi Foundation's 2017 report describes Astro Pi units in the station's Columbus module. In an update on 22 April 2026, ESA said 387 teams had earned flight status in the 2025/26 challenge and that the first programmes were scheduled to run on the ISS that week. These are Astro Pi computers and programme activities; that is not a claim that a standalone Sense HAT board is currently aboard the station.</p>
+          <p><a href="https://astro-pi.org/mission-space-lab">Explore Mission Space Lab</a> <span aria-hidden="true">·</span> <a href="https://www.nasa.gov/international-space-station/columbus-laboratory-module/">About the Columbus module</a></p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section activity-section" id="activities">
+      <div class="section-heading">
+        <p class="eyebrow">The two-hour journey</p>
+        <h2>Four small steps, one shared performance</h2>
+        <p>Take the activities in order. Each one adds a new way to use the kit; the last one reuses what you have made.</p>
+      </div>
+      <div class="activity-list">
+        <article class="activity-card">
+          <div class="activity-number">01</div>
+          <div class="activity-copy">
+            <p class="activity-kicker">First contact · <a href="winter_bells_lab/task1_verify.py">task1_verify.py</a></p>
+            <h3>Is the Sense HAT listening?</h3>
+            <p>Run the short check. One gold LED should appear near the centre of the matrix, then switch off. This confirms that the Pi can talk to the board. No scrolling and no sound yet.</p>
+            <details><summary>What to notice</summary><p>The matrix has 8 columns and 8 rows. The script lights just one coordinate using an RGB colour, then clears the display.</p></details>
+          </div>
+          <span class="activity-tag">Hardware</span>
+        </article>
+        <article class="activity-card">
+          <div class="activity-number">02</div>
+          <div class="activity-copy">
+            <p class="activity-kicker">Make something for the display · <a href="winter_bells_lab/task2_display_and_art.py">task2_display_and_art.py</a></p>
+            <h3>Give the tiny screen a winter scene</h3>
+            <p>Choose a greeting and its colours, then draw an 8×8 picture in Pixel Studio. Start from a template or make your own. Copy the generated Python list into TODO 2 in the task file and run it on the Pi.</p>
+            <p><a href="#pixel-studio">Open the browser Pixel Studio</a> or run <code>python3 pixel_studio_gui.py</code> on the Pi.</p>
+            <details><summary>Why exactly 64 colours?</summary><p>The matrix has 8 rows × 8 columns. The generated list is row-major: the first 8 entries are the top row, then the next row, down to the bottom.</p></details>
+          </div>
+          <span class="activity-tag">Display</span>
+        </article>
+        <article class="activity-card">
+          <div class="activity-number">03</div>
+          <div class="activity-copy">
+            <p class="activity-kicker">Make a chime · <a href="winter_bells_lab/task3_music_tones.py">task3_music_tones.py</a></p>
+            <h3>Shape a sound, one note at a time</h3>
+            <p>This activity is about sound; it does not use the Sense HAT. NumPy builds a digital tone from samples of a sine wave, and Pygame sends the samples to the speaker. A quieter octave overtone and a decaying envelope help the tone sound more like a bell.</p>
+            <div class="theory-grid">
+              <div><strong>Frequency (Hz)</strong><span>Sets pitch. A higher frequency sounds higher; doubling it raises the pitch by an octave.</span></div>
+              <div><strong>Beat count</strong><span>Sets note length. Two beats lasts twice as long as one beat; a REST occupies time without a tone.</span></div>
+              <div><strong>Tempo (BPM)</strong><span>Scales the beat: one beat lasts 60 ÷ BPM seconds.</span></div>
+            </div>
+            <p>Choose a melody in <code>selected_melody_name</code>: Winter Bells, Galway Winter Chime, Snowfall or Bell Echo. Then change notes, beat lengths or tempo and listen again.</p>
+            <details><summary>Quick note guide</summary><p><code>A4 = 440 Hz</code> · <code>C5 = 523.25 Hz</code> · <code>G5 = 783.99 Hz</code> · <code>0.5 beat = eighth note</code> · <code>1 beat = quarter note</code> · <code>2 beats = half note</code>.</p></details>
+          </div>
+          <span class="activity-tag">Sound</span>
+        </article>
+        <article class="activity-card">
+          <div class="activity-number">04</div>
+          <div class="activity-copy">
+            <p class="activity-kicker">Bring lights and sound together · <a href="winter_bells_lab/task4_winter_bells_symphony.py">task4_winter_bells_symphony.py</a></p>
+            <h3>Make a little Winter Bells symphony</h3>
+            <p>Reuse your ideas from the display and music tasks. Change the melody sections, add to the snow scene or reuse your pixel art, and write a closing message. Can your group make each light scene distinct enough for another group to guess what is happening?</p>
+            <details><summary>How the parts stay together</summary><p>The programme coordinates its LED scenes and music against elapsed time, so the display can change along with the performance.</p></details>
+          </div>
+          <span class="activity-tag">Combine</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section studio-section" id="pixel-studio">
+      <div class="section-heading">
+        <p class="eyebrow">Task 2 · Browser tool</p>
+        <h2>Pixel Studio</h2>
+        <p>Choose a colour, paint a square, and see your picture take shape. The output is ready to paste into TODO 2 of <code>task2_display_and_art.py</code>.</p>
+      </div>
+      <div class="studio-layout">
+        <div class="studio-board">
+          <div class="board-topline">
+            <div><strong>8 × 8 LED matrix</strong><span id="pixel-count">64 pixels</span></div>
+            <label class="sr-only" for="template-select">Load a starter design</label>
+            <select id="template-select" aria-label="Load a starter design">
+              <option value="Winter Bell">Winter Bell</option>
+              <option value="Bell">Bell</option>
+              <option value="Snowflake">Snowflake</option>
+              <option value="Winter Star">Winter Star</option>
+              <option value="Snowman">Snowman</option>
+              <option value="Winter Pine">Winter Pine</option>
+              <option value="Winter Frost Pattern">Winter Frost Pattern</option>
+              <option value="Blank">Blank canvas</option>
+            </select>
+          </div>
+          <div class="pixel-grid" id="pixel-grid" role="group" aria-label="8 by 8 pixel drawing grid"></div>
+          <p class="studio-hint">Select a colour, then click a pixel. On a keyboard, use arrow keys to move and Enter or Space to paint.</p>
+        </div>
+        <aside class="studio-controls">
+          <fieldset>
+            <legend>Choose an LED colour</legend>
+            <div class="palette" id="palette"></div>
+            <label class="custom-colour">Custom colour <input id="custom-colour" type="color" value="#5fc3ff" aria-label="Choose a custom LED colour"></label>
+            <button type="button" class="erase-button" id="erase-button" aria-pressed="false">Erase (LED off)</button>
+          </fieldset>
+          <div class="studio-actions">
+            <button type="button" class="button button-muted" id="clear-button">Clear canvas</button>
+            <button type="button" class="button button-maroon" id="copy-button">Copy Python list</button>
+            <button type="button" class="button button-outline-dark" id="download-art-button">Download Python list</button>
+            <p id="studio-status" class="status-message" role="status" aria-live="polite">Winter Bell template loaded.</p>
+          </div>
+        </aside>
+      </div>
+      <details class="code-details">
+        <summary>Preview the generated TODO 2 code</summary>
+        <pre><code id="code-preview"></code></pre>
+      </details>
+    </section>
+
+    <section class="section prepare-section" id="prepare">
+      <div class="section-heading">
+        <p class="eyebrow">Before the first LED</p>
+        <h2>Get the Raspberry Pi ready</h2>
+        <p>Allow about 10 minutes for setup. Extract the lab folder on the Pi, open a terminal, and run:</p>
+      </div>
+      <div class="prepare-grid">
+        <div class="terminal-card">
+          <div class="terminal-title"><span aria-hidden="true" class="terminal-dots">● ● ●</span><span>Terminal</span></div>
+          <pre><code>cd ~/winter_bells_lab
+chmod +x setup_pi.sh
+./setup_pi.sh</code></pre>
+          <p>The setup script checks for <code>sense_hat</code>, <code>pygame</code>, <code>numpy</code> and <code>tkinter</code>. Open the task files in Thonny or Geany. In Geany, set Execute to <code>python3 "%f"</code>.</p>
+        </div>
+        <div class="checklist-card">
+          <h3>Before you leave</h3>
+          <ul class="check-list">
+            <li>Stop a running task with Ctrl+C or Thonny's Stop button.</li>
+            <li>If LEDs remain on, run <code>sense.clear()</code>.</li>
+            <li>If there is no sound, check the Raspberry Pi desktop audio menu and select HDMI or your headphones/speakers.</li>
+            <li>If Pixel Studio reports an invalid image, check that it has exactly 64 pixels: eight rows of eight.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section downloads-section" id="downloads">
+      <div class="section-heading">
+        <p class="eyebrow">Take the pack with you</p>
+        <h2>Lab materials</h2>
+        <p>Use the PDF for a printable guide. The ZIP contains the project files; individual links below are handy when you only need one item.</p>
+      </div>
+      <div class="download-grid">
+        <a class="download-card download-primary" href="Winter_Bells_Lab_Instructions.pdf" download><span class="download-icon" aria-hidden="true">PDF</span><strong>Printable handout</strong><span>Winter Bells Lab Instructions</span></a>
+        <a class="download-card" href="winter_bells_lab.zip" download><span class="download-icon" aria-hidden="true">ZIP</span><strong>Complete lab pack</strong><span>Instructions, scripts and tools</span></a>
+        <a class="download-card" href="winter_bells_lab/README.txt" download><span class="download-icon" aria-hidden="true">TXT</span><strong>README</strong><span>Setup, activity guide and troubleshooting</span></a>
+        <a class="download-card" href="winter_bells_lab/solutions.zip" download><span class="download-icon" aria-hidden="true">ZIP</span><strong>Fallback solutions</strong><span>Try each task first, then compare</span></a>
+      </div>
+      <div class="file-list">
+        <h3>What's in the lab pack?</h3>
+        <ul>
+          <li><a href="winter_bells_lab/setup_pi.sh">setup_pi.sh</a> — checks the lab software</li>
+          <li><a href="winter_bells_lab/task1_verify.py">task1_verify.py</a> — one-LED hardware check</li>
+          <li><a href="winter_bells_lab/task2_display_and_art.py">task2_display_and_art.py</a> — scrolling message and pixel art</li>
+          <li><a href="winter_bells_lab/pixel_studio_gui.py">pixel_studio_gui.py</a> — standalone desktop Pixel Studio</li>
+          <li><a href="winter_bells_lab/task3_music_tones.py">task3_music_tones.py</a> — NumPy bell tones and melodies</li>
+          <li><a href="winter_bells_lab/task4_winter_bells_symphony.py">task4_winter_bells_symphony.py</a> — combined performance</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section space-project" id="space-project">
+      <div>
+        <p class="eyebrow">One for later</p>
+        <h2>Could your idea go further?</h2>
+        <p>Astro Pi's Mission Space Lab invites student teams to develop experiments for the ISS. The Sense HAT sensors give you a starting point for projects that notice movement or environmental change. You can also explore the Raspberry Pi Foundation's printable Astro Pi flight-case project; it is a model for projects, not flight-certified equipment.</p>
+      </div>
+      <div class="space-links">
+        <a href="https://astro-pi.org/mission-space-lab">Mission Space Lab <span aria-hidden="true">↗</span></a>
+        <a href="https://www.raspberrypi.org/blog/astro-pi-3d-print-your-own-flight-case/">Printable Astro Pi flight case <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="section references-section" id="references">
+      <div class="section-heading">
+        <p class="eyebrow">Read more</p>
+        <h2>References</h2>
+        <p>Hardware descriptions, programme details and the image credit are linked to their sources.</p>
+      </div>
+      <ol class="reference-list">
+        <li>Raspberry Pi Ltd., <a href="https://www.raspberrypi.com/documentation/accessories/sense-hat.html">Raspberry Pi Sense HAT documentation</a>.</li>
+        <li>Raspberry Pi Foundation, <a href="https://www.raspberrypi.org/blog/the-sense-hat-headgear-for-the-terminally-curious/">“The Sense HAT: headgear for the terminally curious”</a>, 13 May 2015. Photograph: <a href="https://www.raspberrypi.org/wp-content/uploads/2015/05/sense-hat.jpg">Sense HAT on Raspberry Pi</a>.</li>
+        <li>Raspberry Pi Foundation, <a href="https://www.raspberrypi.org/blog/astro-pi-upgrades/">“Astro Pi upgrades on the International Space Station”</a>, 19 September 2017. The article reports Astro Pi units in the Columbus module.</li>
+        <li>European Space Agency, <a href="https://www.esa.int/Education/AstroPI/A_stellar_milestone_Astro_Pi_programs_on_their_way_to_the_ISS">“A stellar milestone: Astro Pi programs on their way to the ISS”</a>, 22 April 2026.</li>
+        <li>Astro Pi, <a href="https://astro-pi.org/mission-space-lab">Mission Space Lab</a>.</li>
+        <li>NASA, <a href="https://www.nasa.gov/international-space-station/columbus-laboratory-module/">Columbus Laboratory Module</a>.</li>
+        <li>Raspberry Pi Foundation, <a href="https://www.raspberrypi.org/blog/astro-pi-3d-print-your-own-flight-case/">“Astro Pi: 3D-Print Your Own Flight Case”</a>, 8 February 2016. The printed case is a project model, not flight-qualified equipment.</li>
+        <li>Google, <a href="https://aistudio.google.com/">Google AI Studio</a>, AI tool used to assist in preparing the lab handout.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>University of Galway · Winter Bells Lab</span>
+      <a href="#top">Back to top ↑</a>
+      <a href="#references">References</a>
+    </div>
+  </footer>
+</body>
+</html>
